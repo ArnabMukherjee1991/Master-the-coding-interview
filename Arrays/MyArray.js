@@ -37,10 +37,15 @@ class MyArray{
   add(index,item){
     if(index < 0){
       return "Invalid Index "+ index;
+    }else if(index > this.length){
+      this.push(item);
     }
-    this.shiftIndexesRight(index);
-    this.data[index] = item;
-     this.length++;
+    else{
+      this.shiftIndexesRight(index);
+      this.data[index] = item;
+      this.length++;
+  }
+     
   }
 
   shiftIndexesLeft(index){
@@ -51,16 +56,12 @@ class MyArray{
   }
 
   shiftIndexesRight(index){
-    if(index > (this.length -1) ){
-      let counter = this.length;
-      while(counter < index){
-        this.data[counter] = "";
-        counter++;
-        this.length++;
-      }
-    }
-    else if (index < (this.length-1)){
+   // console.log(this);
+    
+    if (index < (this.length-1)){
+
       for(let i=(this.length-1);i>=index;i--){
+     //   console.log("Value of i = "+ i)
         this.data[i+1] = this.data[i];
       }
      
