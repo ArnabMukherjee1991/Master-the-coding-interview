@@ -83,6 +83,23 @@ class LinkedList{
     return pointer;
   }
 
+  reverse(){
+    console.log("Start reverse.....")
+    let first = this.head;
+    let second = first.next;
+    this.tail = this.head;
+    while(second !== null){
+      let temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head = first;
+    this.tail.next = null;
+    console.log(this)
+    return this;
+  }
+
 
 
 }
@@ -101,4 +118,6 @@ myLinkedList.traverse();
 //console.log(myLinkedList.get(7));
 console.log(myLinkedList.remove(3));
 myLinkedList.traverse();
+reversedList = myLinkedList.reverse();
+reversedList.traverse();
 
