@@ -66,5 +66,4 @@ bst.insert(70);
 bst.insert(130);
 //console.log(bst);
 console.log(JSON.stringify(traverse(bst.root)));
-
-  
+console.log(JSON.stringify(new Date))
